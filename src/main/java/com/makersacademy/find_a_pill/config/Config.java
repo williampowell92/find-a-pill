@@ -27,7 +27,6 @@ public class Config {
   public Client client() throws Exception {
 
     Settings settings = Settings.builder()
-        .put("client.transport.sniff", true)
         .put("path.home", elasticsearchHome)
         .put("cluster.name", clusterName)
         .build();
