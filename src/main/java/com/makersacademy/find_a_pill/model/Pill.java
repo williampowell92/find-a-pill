@@ -9,8 +9,12 @@ import org.springframework.data.elasticsearch.annotations.Document;
 public class Pill {
 
   @Id
-  private Long id;
+  private String id;
 
   private String title;
+
+  public Pill(String title) {
+    this.title = title;
+  }
 
 }

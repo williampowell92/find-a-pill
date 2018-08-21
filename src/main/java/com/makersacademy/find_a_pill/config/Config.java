@@ -8,6 +8,7 @@ import org.elasticsearch.common.transport.InetSocketTransportAddress;
 import org.elasticsearch.transport.client.PreBuiltTransportClient;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.elasticsearch.core.ElasticsearchOperations;
 import org.springframework.data.elasticsearch.core.ElasticsearchTemplate;
@@ -15,6 +16,7 @@ import org.springframework.data.elasticsearch.repository.config.EnableElasticsea
 
 @Configuration
 @EnableElasticsearchRepositories(basePackages = "com.makersacademy.find_a_pill")
+@ComponentScan(basePackages = { "com.makersacademy.find_a_pill.service" })
 public class Config {
 
   @Value("${elasticsearch.home:/usr/local/Cellar/elasticsearch@5.6/5.6.10}")
