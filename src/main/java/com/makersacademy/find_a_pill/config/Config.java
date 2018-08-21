@@ -20,7 +20,7 @@ public class Config {
   @Value("${elasticsearch.home:/usr/local/Cellar/elasticsearch@5.6/5.6.10}")
   private String elasticsearchHome;
 
-  @Value("${elasticsearch.cluster.name:elasticsearch_williampowell}")
+  @Value("${elasticsearch.cluster.name:elasticsearch}")
   private String clusterName;
 
   @Bean
