@@ -42,6 +42,7 @@ public class ElasticSearchIntegrationTest {
   public void givenPillService_whenSaveArticle_thenIdIsAssigned() {
     Pill pill = new Pill("Spring101");
     pill = service.save(pill);
+
     assertNotNull(pill.getId());
   }
 
