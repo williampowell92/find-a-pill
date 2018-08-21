@@ -1,4 +1,4 @@
-package com.makersacademy.find_a_pill;
+package com.makersacademy.find_a_pill.model;
 
 import lombok.Data;
 import org.springframework.data.annotation.Id;

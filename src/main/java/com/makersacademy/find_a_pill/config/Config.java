@@ -1,9 +1,8 @@
-package com.makersacademy.find_a_pill;
+package com.makersacademy.find_a_pill.config;
 
 import java.net.InetAddress;
 
 import org.elasticsearch.client.Client;
-import org.elasticsearch.client.transport.TransportClient;
 import org.elasticsearch.common.settings.Settings;
 import org.elasticsearch.common.transport.InetSocketTransportAddress;
 import org.elasticsearch.transport.client.PreBuiltTransportClient;
