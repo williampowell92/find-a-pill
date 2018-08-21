@@ -1,7 +1,7 @@
 package com.makersacademy.find_a_pill;
 
 import java.net.InetAddress;
-import java.net.UnknownHostException;
+
 import org.elasticsearch.client.Client;
 import org.elasticsearch.client.transport.TransportClient;
 import org.elasticsearch.common.settings.Settings;
@@ -18,30 +18,30 @@ import org.springframework.data.elasticsearch.repository.config.EnableElasticsea
 @EnableElasticsearchRepositories(basePackages = "com.makersacademy.find_a_pill")
 public class Config {
 
-  @Value("${elasticsearch.home:/usr/local/Cellar/elasticsearch/6.2.4}")
+  @Value("${elasticsearch.home:/usr/local/Cellar/elasticsearch@5.6/5.6.10}")
   private String elasticsearchHome;
 
-  @Value("${elasticsearch.cluster.name:elasticsearch}")
+  @Value("${elasticsearch.cluster.name:elasticsearch_williampowell}")
   private String clusterName;
 
   @Bean
-  public Client client() {
-    Settings elasticsearchSettings = Settings.builder()
+  public Client client() throws Exception {
+
+    Settings settings = Settings.builder()
         .put("client.transport.sniff", true)
         .put("path.home", elasticsearchHome)
-        .put("cluster.name", clusterName).build();
-    try (TransportClient client = new PreBuiltTransportClient(elasticsearchSettings)) {
-      client.addTransportAddress(
-          new InetSocketTransportAddress(InetAddress.getByName("127.0.0.1"), 9300));
-      return client;
-    } catch (UnknownHostException e) {
-      e.printStackTrace();
-    }
-    return null;
+        .put("cluster.name", clusterName)
+        .build();
+
+    Client client = new PreBuiltTransportClient(settings)
+        .addTransportAddress(new InetSocketTransportAddress(InetAddress.getByName("127.0.0.1"), 9300));
+
+    return client;
   }
 
+
   @Bean
-  public ElasticsearchOperations elasticsearchTemplate() {
+  public ElasticsearchOperations elasticsearchTemplate() throws Exception {
     return new ElasticsearchTemplate(client());
   }
 
