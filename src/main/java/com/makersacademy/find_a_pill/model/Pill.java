@@ -14,13 +14,19 @@ public class Pill {
   @Id
   private String id;
 
-  @Field(type = Text)
   private String title;
+
+  private String Url;
 
   public Pill() {}
 
   public Pill(String title) {
     this.title = title;
+  }
+
+  public Pill(String title, String Url) {
+    this.title = title;
+    this.Url = Url;
   }
 
 }
