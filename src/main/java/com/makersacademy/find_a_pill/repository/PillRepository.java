@@ -10,6 +10,8 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface PillRepository extends ElasticsearchRepository<Pill, String> {
 
+  Page<Pill> findAll(Pageable pageable);
+
   Page<Pill> findByTitle(String title, Pageable pageable);
 
   @Query("{\"regexp\": { \"title\": \".*?0.*\" } }")
