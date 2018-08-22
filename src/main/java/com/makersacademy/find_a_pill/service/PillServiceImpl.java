@@ -27,4 +27,7 @@ public class PillServiceImpl implements PillService {
   public Page<Pill> findByTitle(String string, Pageable pageable) {
     return repository.findByTitle(string, pageable);
   }
+
+  @Override
+  public Page<Pill> findByTitleWithCustomQuery
 }
