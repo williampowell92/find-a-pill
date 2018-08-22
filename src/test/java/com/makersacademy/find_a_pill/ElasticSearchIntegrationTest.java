@@ -104,6 +104,7 @@ public class ElasticSearchIntegrationTest {
     Page<Pill> response  = service.findByTitleWithCustomQuery("magic", PageRequest.of(0, 10));
 
     assertEquals("www.magicpills.com", response.getContent().get(0).getUrl());
+    assertEquals("magic pills", response.getContent().get(0).getTitle());
   }
 
 }
