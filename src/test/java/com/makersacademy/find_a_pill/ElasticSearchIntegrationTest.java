@@ -98,13 +98,19 @@ public class ElasticSearchIntegrationTest {
   }
 
   @Test
-  public void givenPillWithURL_ReturnsTitleAndURL() {
-    Pill pill = new Pill("magic pills", "www.magicpills.com");
+  public void givenPillWithURL_ReturnsTitleAndURLAndSummary() {
+    final String summary = "After this, there is no turning back. You take the blue pill—the story "
+        + "ends, you wake up in your bed and believe whatever you want to believe. You take the red"
+        + " pill—you stay in Wonderland, and I show you how deep the rabbit hole goes. Remember: al"
+        + "l I'm offering is the truth.";
+
+    Pill pill = new Pill("magic pills", "www.magicpills.com", summary);
     service.save(pill);
     Page<Pill> response  = service.findByTitleWithCustomQuery("magic", PageRequest.of(0, 10));
 
     assertEquals("www.magicpills.com", response.getContent().get(0).getUrl());
     assertEquals("magic pills", response.getContent().get(0).getTitle());
+    assertEquals(summary, response.getContent().get(0).getSummary());
   }
 
 }
