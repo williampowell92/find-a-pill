@@ -90,4 +90,11 @@ public class ElasticSearchIntegrationTest {
     assertEquals(2L, response.getTotalElements());
   }
 
+  @Test
+  public void whenFindAll_thenReturnsAllResults() {
+    Page<Pill> response = service.findAll(PageRequest.of(0, 10));
+
+    assertEquals(4L, response.getTotalElements());
+  }
+
 }

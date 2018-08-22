@@ -9,6 +9,8 @@ public interface PillService {
 
   Pill save(Pill pill);
 
+  Page<Pill> findAll(Pageable pageable);
+
   Page<Pill> findByTitle(String string, Pageable pageable);
 
   Page<Pill> findByTitleWithCustomQuery(String string, Pageable pageable);
