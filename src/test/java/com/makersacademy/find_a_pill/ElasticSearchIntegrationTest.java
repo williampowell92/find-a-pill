@@ -97,4 +97,14 @@ public class ElasticSearchIntegrationTest {
     assertEquals(4L, response.getTotalElements());
   }
 
+  @Test
+  public void givenPillWithURL_ReturnsTitleAndURL() {
+    Pill pill = new Pill("magic pills", "www.magicpills.com");
+    service.save(pill);
+    Page<Pill> response  = service.findByTitleWithCustomQuery("magic", PageRequest.of(0, 10));
+
+    assertEquals("www.magicpills.com", response.getContent().get(0).getUrl());
+    assertEquals("magic pills", response.getContent().get(0).getTitle());
+  }
+
 }
