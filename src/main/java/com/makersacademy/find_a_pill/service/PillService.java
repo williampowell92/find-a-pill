@@ -11,5 +11,5 @@ public interface PillService {
 
   Page<Pill> findByTitle(String string, Pageable pageable);
 
-  Page<Pill> findByTitleWithCustomQuery(String b, Pageable pageable);
+  Page<Pill> findByTitleWithCustomQuery(String string, Pageable pageable);
 }

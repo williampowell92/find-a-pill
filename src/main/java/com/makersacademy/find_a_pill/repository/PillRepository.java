@@ -12,4 +12,8 @@ public interface PillRepository extends ElasticsearchRepository<Pill, String> {
 
   Page<Pill> findByTitle(String title, Pageable pageable);
 
+  @Query("{\"regexp\": { \"title\": \".*?0.*\" } }")
+  Page<Pill> findByTitleWithCustomQuery(String title, Pageable pageable);
+
+
 }
