@@ -1,5 +1,6 @@
 package com.makersacademy.find_a_pill;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
 import com.makersacademy.find_a_pill.config.Config;
@@ -13,6 +14,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.ConfigFileApplicationContextInitializer;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.annotation.PropertySource;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.elasticsearch.core.ElasticsearchTemplate;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.TestPropertySource;
@@ -31,6 +34,20 @@ public class ElasticSearchIntegrationTest {
   @Before
   public void setUp() {
     template.createIndex(Pill.class);
+
+    Pill pill;
+
+    pill = new Pill("bdd");
+    service.save(pill);
+
+    pill = new Pill("blocks");
+    service.save(pill);
+
+    pill = new Pill("levelling up");
+    service.save(pill);
+
+    pill = new Pill("mvc");
+    service.save(pill);
   }
 
   @After
@@ -44,6 +61,13 @@ public class ElasticSearchIntegrationTest {
     pill = service.save(pill);
 
     assertNotNull(pill.getId());
+  }
+
+  @Test
+  public void givenPillExists_whenFindByTitle_thenPillTitleIsReturned() {
+    Page<?> response = service.findByTitle("bdd", PageRequest.of(0, 10));
+
+    assertEquals(1L, response.getTotalElements());
   }
 
 }
