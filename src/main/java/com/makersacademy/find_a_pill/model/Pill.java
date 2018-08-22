@@ -16,7 +16,9 @@ public class Pill {
 
   private String title;
 
-  private String Url;
+  private String url;
+
+  private String summary;
 
   public Pill() {}
 
@@ -24,9 +26,10 @@ public class Pill {
     this.title = title;
   }
 
-  public Pill(String title, String Url) {
+  public Pill(String title, String url, String summary) {
     this.title = title;
-    this.Url = Url;
+    this.url = url;
+    this.summary = summary;
   }
 
 }
