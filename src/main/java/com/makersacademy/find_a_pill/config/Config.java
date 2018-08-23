@@ -1,7 +1,6 @@
 package com.makersacademy.find_a_pill.config;
 
 import java.net.InetAddress;
-
 import org.elasticsearch.client.Client;
 import org.elasticsearch.common.settings.Settings;
 import org.elasticsearch.common.transport.InetSocketTransportAddress;
@@ -13,7 +12,9 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.data.elasticsearch.core.ElasticsearchOperations;
 import org.springframework.data.elasticsearch.core.ElasticsearchTemplate;
 import org.springframework.data.elasticsearch.repository.config.EnableElasticsearchRepositories;
+import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
+@EnableWebMvc
 @Configuration
 @EnableElasticsearchRepositories(basePackages = "com.makersacademy.find_a_pill")
 @ComponentScan(basePackages = { "com.makersacademy.find_a_pill.service" })
