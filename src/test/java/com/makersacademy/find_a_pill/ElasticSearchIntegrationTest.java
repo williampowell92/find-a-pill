@@ -37,10 +37,12 @@ public class ElasticSearchIntegrationTest {
     pill = new Pill("bdd");
     service.save(pill);
 
-    pill = new Pill("blocks");
+    pill = new Pill("blocks", "www.blocks.com", "blocks of bdd");
     service.save(pill);
 
     pill = new Pill("levelling up");
+    String[] tags = new String[]{"level", "up", "bdd"};
+    pill.setTags(tags);
     service.save(pill);
 
     pill = new Pill("mvc");
@@ -111,6 +113,13 @@ public class ElasticSearchIntegrationTest {
     assertEquals("www.magicpills.com", response.getContent().get(0).getUrl());
     assertEquals("magic pills", response.getContent().get(0).getTitle());
     assertEquals(summary, response.getContent().get(0).getSummary());
+  }
+
+  @Test
+  public void givenMatchingSearchCriteria_whenFindByTitleAndTagAndSummaryWithCustomQuery_ReturnsAllMatches() {
+    Page<Pill> response = service.findByTitleAndTagAndSummaryWithCustomQuery("bdd", PageRequest.of(0, 10));
+
+    assertEquals(3L, response.getTotalElements());
   }
 
 }

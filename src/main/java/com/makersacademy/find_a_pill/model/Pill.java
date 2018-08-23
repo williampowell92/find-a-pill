@@ -11,7 +11,6 @@ import org.springframework.data.elasticsearch.annotations.Field;
 @Document(indexName = "pharmacy", type = "pill")
 @Data
 public class Pill {
-
   @Id
   private String id;
 
@@ -22,7 +21,7 @@ public class Pill {
   private String summary;
 
   @Field(type=Keyword)
-  private String[] tag;
+  private String[] tags;
 
   public Pill() {}
 
@@ -35,5 +34,4 @@ public class Pill {
     this.url = url;
     this.summary = summary;
   }
-
 }

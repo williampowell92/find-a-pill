@@ -18,7 +18,6 @@ import org.springframework.data.elasticsearch.repository.config.EnableElasticsea
 @EnableElasticsearchRepositories(basePackages = "com.makersacademy.find_a_pill")
 @ComponentScan(basePackages = { "com.makersacademy.find_a_pill.service" })
 public class Config {
-
   @Value("${elasticsearch.home:/usr/local/Cellar/elasticsearch@5.6/5.6.10}")
   private String elasticsearchHome;
 
@@ -27,7 +26,6 @@ public class Config {
 
   @Bean
   public Client client() throws Exception {
-
     Settings settings = Settings.builder()
         .put("path.home", elasticsearchHome)
         .put("cluster.name", clusterName)
@@ -43,5 +41,4 @@ public class Config {
   public ElasticsearchOperations elasticsearchTemplate() throws Exception {
     return new ElasticsearchTemplate(client());
   }
-
 }
