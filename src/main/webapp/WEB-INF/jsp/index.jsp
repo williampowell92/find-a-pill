@@ -1,3 +1,5 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,11 +11,11 @@
       <input type="text">
       <input type="submit" value="Search">
   </form>
-  <% for (Pill pill : pills) { %>
+  <c:forEach items="${pills}" var="pill">
     <article>
-      <h2><a href="<%= pill.getUrl() %>"><%= pill.getTitle() %></a></h2>
-      <p><%= pill.getSummary() %></p>
+      <h2><a href="${pill.url}">${pill.title}</a></h2>
+      <p>${pill.summary}</p>
     </article>
-  <% } %>
+  </c:forEach>
 </body>
 </html>
