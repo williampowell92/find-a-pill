@@ -21,7 +21,6 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(initializers = ConfigFileApplicationContextInitializer.class, classes = Config.class)
 public class ElasticSearchIntegrationTest {
-
   @Autowired
   private ElasticsearchTemplate template;
 
@@ -121,5 +120,4 @@ public class ElasticSearchIntegrationTest {
 
     assertEquals(3L, response.getTotalElements());
   }
-
 }

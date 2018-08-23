@@ -17,5 +17,5 @@ public interface PillRepository extends ElasticsearchRepository<Pill, String> {
   Page<Pill> findByTitleWithCustomQuery(String title, Pageable pageable);
 
   @Query("{ \"bool\": { \"should\": [ { \"regexp\": { \"title\": \".*?0.*\" } }, { \"match\": { \"summary\": \"?0\" } }, { \"match\": { \"tags\": \"?0\" } } ] } }")
-  Page<Pill> findByTitleAndTagAndSummaryWithCustomQuery(String title, Pageable pageable);
+  Page<Pill> findByTitleAndTagAndSummaryWithCustomQuery(String string, Pageable pageable);
 }
