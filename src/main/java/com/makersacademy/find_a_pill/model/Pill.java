@@ -1,5 +1,6 @@
 package com.makersacademy.find_a_pill.model;
 
+import static org.springframework.data.elasticsearch.annotations.FieldType.Keyword;
 import static org.springframework.data.elasticsearch.annotations.FieldType.Text;
 
 import lombok.Data;
@@ -10,7 +11,6 @@ import org.springframework.data.elasticsearch.annotations.Field;
 @Document(indexName = "pharmacy", type = "pill")
 @Data
 public class Pill {
-
   @Id
   private String id;
 
@@ -19,6 +19,9 @@ public class Pill {
   private String url;
 
   private String summary;
+
+  @Field(type=Keyword)
+  private String[] tags;
 
   public Pill() {}
 
@@ -31,5 +34,4 @@ public class Pill {
     this.url = url;
     this.summary = summary;
   }
-
 }

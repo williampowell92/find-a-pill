@@ -6,7 +6,6 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 
 public interface PillService {
-
   Pill save(Pill pill);
 
   Page<Pill> findAll(Pageable pageable);
@@ -14,4 +13,6 @@ public interface PillService {
   Page<Pill> findByTitle(String string, Pageable pageable);
 
   Page<Pill> findByTitleWithCustomQuery(String string, Pageable pageable);
+
+  Page<Pill> findByTitleAndTagAndSummaryWithCustomQuery(String string, Pageable pageable);
 }

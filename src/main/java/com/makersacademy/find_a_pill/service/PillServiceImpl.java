@@ -9,8 +9,6 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class PillServiceImpl implements PillService {
-
-
   private final PillRepository repository;
 
   @Autowired
@@ -36,4 +34,8 @@ public class PillServiceImpl implements PillService {
   @Override
   public Page<Pill> findByTitleWithCustomQuery(String string, Pageable pagable) { return repository.findByTitleWithCustomQuery(string, pagable); }
 
+  @Override
+  public Page<Pill> findByTitleAndTagAndSummaryWithCustomQuery(String string, Pageable pageable) {
+    return repository.findByTitleAndTagAndSummaryWithCustomQuery(string, pageable);
+  }
 }
