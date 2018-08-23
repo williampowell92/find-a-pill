@@ -7,8 +7,8 @@
 </head>
 <body>
   <h1>Pharmacy</h1>
-  <form action="/pills" method="GET">
-      <input type="text">
+  <form action="/" method="GET">
+      <input type="text" name="query">
       <input type="submit" value="Search">
   </form>
   <c:forEach items="${pills}" var="pill">
