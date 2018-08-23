@@ -23,10 +23,10 @@ public class HomeControllerTest {
         MockitoAnnotations.initMocks(this);
     }
 
-    @Test
-    public void indexRootReturnsGreeting() {
-        when(controller.index()).thenCallRealMethod();
-        assertEquals("Hello World", controller.index());
-    }
+//    @Test
+//    public void indexRootReturnsGreeting() {
+//        when(controller.index()).thenCallRealMethod();
+//        assertEquals("Hello World", controller.index());
+//    }
 
 }

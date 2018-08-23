@@ -1,15 +1,15 @@
 package com.makersacademy.find_a_pill.controller;
 
+import java.util.Map;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 public class HomeController {
-
-    @RequestMapping(value = "/")
-    @ResponseBody
-    public String index() {
-       return "Hello World";
-    }
+  @RequestMapping("/")
+  public String welcome() {
+    return "welcome";
+  }
 }
