@@ -13,5 +13,16 @@
   font-family: 'Bitter', serif, Arial;
   font-weight: bold;
   color: green;
+  padding: 2rem;
+}
 
+#logo_container {
+  width: 30%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo {
+  max-width: 100%;
 }

@@ -7,11 +7,15 @@
   <link href="webjars/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Bitter" rel="stylesheet">
   <link href="index.css" rel="stylesheet">
+  <link rel="icon" href="cross.png">
   <script src="webjars/jquery/3.0.0/jquery.min.js"></script>
   <script src="webjars/bootstrap/4.1.3/js/bootstrap.min.js"></script>
 </head>
 <body>
   <div class="container">
+    <div class="container" id="logo_container">
+      <img src="cross.png" class="logo">
+    </div>
     <div class="jumbotron text-center">
       <h1 class="display-4">PHARMACY</h1>
     </div>
