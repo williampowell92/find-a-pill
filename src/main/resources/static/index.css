@@ -1,0 +1,28 @@
+#search_btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#button_container {
+  width: 20%;
+}
+
+.jumbotron {
+  background-color: white;
+  font-family: 'Bitter', serif, Arial;
+  font-weight: bold;
+  color: green;
+  padding: 2rem;
+}
+
+#logo_container {
+  width: 30%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo {
+  max-width: 100%;
+}
